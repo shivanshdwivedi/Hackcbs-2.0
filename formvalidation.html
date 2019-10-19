@@ -1,0 +1,167 @@
+<html>
+<head><title>Using Forms in HTML </title> 
+<script> 
+function result()
+{
+	var hlist=document.getElementById('hobbies');
+	document.write("<h1 align='center'>Yours Selected Hobbies are : ");
+	for(x in hlist.options)
+	{
+		if(hlist.options[x].selected)
+		 	document.write("<br>"+ hlist.options[x].value);	
+	}
+}
+function form_validator()
+{
+	var a=feedback.cname.value
+	if(a=="")
+	{	
+		alert("You can't leave name as blank");
+		feedback.cname.focus();
+		return false;
+	}	
+	var chk="abcdefghijklmnopqrtstuvwxyz THEQUICKBROWNFOXJUPMPSOVERTHELITTLELAZYDOG";
+	var flag=true;
+	for(i=0; i<a.length; i++)
+	{
+		ch=a.charAt(i);
+			for(j=0; j<chk.length; j++)
+				if(ch==chk.charAt(j))
+					break;
+			if(j==chk.length)
+			{
+					flag=false;
+					break;
+			}
+	}
+	if(!flag)
+	{	alert("Invalid. Please enter only alphabets ");
+		feedback.cname.focus();
+		return (false);
+	}
+	a=	feedback.pwd.value;
+	
+	if(a.length<3 || a.length>12)
+	{	
+		alert("password length to be between 3-12 characters");
+		feedback.pwd.focus();
+		return false;
+	}
+	b=  feedback.pwd1.value;
+	if(a!=b)
+	{
+		alert("Passwords dont match");
+		feedback.pwd1.focus();
+		return (false);
+	}
+	a= feedback.email.value;
+	if(a=="")
+	{
+		alert("Please Enter a valid email ID");
+		feedback.email.focus();
+		return (false);
+	}
+	chk="@.";
+	var flagvalid=false;
+	var flagat=false;
+	var flagdot=false;
+	for(i=0; i<a.length; i++)
+	{
+		ch=a.charAt(i);
+		for(j=0; j<chk.length; j++)
+		{
+			if(ch==chk.charAt(j) && ch=='@')
+				flagat=true;
+			if(ch==chk.charAt(j) && ch==".")
+				flagdot=true;
+			if(flagat && flagdot)
+				break;
+		}
+	if(flagat && flagdot)
+	{
+		flagvalid=true;
+		break;
+	}
+	}
+	if(!flagvalid)
+	{	
+		alert("Invlaid email ID. It must contain @ and . ")
+		feedback.email.focus();
+		return (false);
+	}
+	flag=false;
+	a=feedback.sex;
+	for(i=0; i<a.length; i++)
+	{
+		if(feedback.sex[i].checked)
+			flag=true;
+		break;
+	}
+	if(!flag)
+	{
+		alert("Please select atleast one gender");
+		feedback.sex.focus();
+		return (false);
+	}
+	a=feedback.adr.value;
+	if(a=="")
+	{	
+		alert("You can't leave address as blank");
+		feedback.adr.focus();
+		return (false);
+	}	
+	
+	
+	if(feedback.country.selectedIndex<=0)
+	{
+		alert("Selection of one country is mandatory");
+		feedback.country.focus();
+		return(false);
+	}
+	if(feedback.hobby.selectedIndex<=0)
+	{
+		alert("Please select atleast one hobby");
+		feedback.hobby.focus();
+		return(false);
+	}
+	
+			
+						
+}	
+ </script>
+</head>
+<body bgcolor="black" text="White">
+<h1 align="center">Feedback Form</h1> <hr>
+<h2>Please provide your feedback, so that we can imporve... </h2>
+<font face="cambria" size=4>
+<form name="feedback" method="Post" onSubmit="result()">
+Enter Your Name :: <input type="text" id='cname' name="cname" size=20 > <br><br>
+Choose Your Password :: <input type="password" name="pwd"> <br><br>
+Reconfirm Your Password :: <input type="password" name="pwd1"> <br><br>
+Enter Your email :: <input type="text" name="email" size=50> <br><br>
+Select Your Gender :: Male <input type="radio" id='sex' name="sex"> Female <input type="radio" name="sex" id='sex' >Transgender <input type="radio" name="sex" id='sex'> <br><br>
+Enter Address :: <textarea rows="4" cols="30" name="adr"> </textarea> <br> <br>
+Select Your Country :: <select name="country" id='country'>
+<option>(Select Your Country)
+<option value="India"> India
+<option value="Australia"> Australia
+<option value="US"> United States
+<option value="UK"> United Kingdom
+<option value="France"> France
+<option value="Germany"> Germany
+<option value="Japan"> Japan
+</select> <br><br>
+   Select Your Hobbies :: <select name="hobby" id='hobbies' size="4" multiple>
+<option value="Sports">Sports 
+<option value="Current Affairs">Current Affairs 
+<option value="Politics">Politics
+<option value="International Agendas"> International Agendas
+<option value="Litreture">Litreture 
+<option value="Music">Music 
+<option value="Entertainment">Entertainment </select><br> <br>
+
+<input type="submit" name="Submit" onClick="form_validator()">
+<input type="reset" name="clear" value="clear Form">
+
+</form></body>
+</html>
