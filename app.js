@@ -10,15 +10,15 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req, res){
-  res.render('index', {});
+  res.render('index');
 });
 
 app.get("/login", function(req, res){
-  res.render('login', {});
+  res.render('login');
 });
 
 app.get("/sellerlogin", function(req, res){
-  res.render('sellerlogin', {});
+  res.render('sellerlogin');
 });
 
 
