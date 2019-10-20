@@ -27,10 +27,32 @@ app.get("/sellerlogin", function(req, res){
   res.render('sellerlogin');
 });
 
-app.post("/", function(req,res){
-  
+app.get("/page1", function(req, res){
+  res.render('page1');
 });
 
+app.get("/page2", function(req, res){
+  res.render('page2');
+});
+
+app.get("/page3", function(req, res){
+  res.render('page3');
+});
+
+app.get("/page4", function(req, res){
+  res.render('page4');
+});
+
+
+
+app.post("/page2", function(req,res){
+  res.render('page2');
+});
+
+
+app.post("/page3", function(req,res){
+  res.render('page3');
+});
 
 
 
