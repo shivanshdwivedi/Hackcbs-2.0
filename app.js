@@ -27,6 +27,10 @@ app.get("/sellerlogin", function(req, res){
   res.render('sellerlogin');
 });
 
+app.post("/", function(req,res){
+  
+});
+
 
 
 
