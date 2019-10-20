@@ -11,7 +11,14 @@ app.get("/", function(req, res){
 
 app.post("/", function(req,res){
 
-
+if(u===p)
+{
+  rate = (rate) - (0.5)(rate);
+}
+else
+{
+  rate = rate -(0.7)(rate);
+}
     
 });
 
