@@ -54,6 +54,9 @@ app.post("/page3", function(req,res){
   res.render('page3');
 });
 
+app.post("/page4", function(req,res){
+  res.render('page4');
+});
 
 
 app.listen(4000, function(){
